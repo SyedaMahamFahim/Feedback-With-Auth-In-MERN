@@ -20,13 +20,11 @@ exports.createTodo = catchAsyncError(async (req, res, next) => {
   });
 });
 
+
+
 // Get All Todos
-exports.allTodos = catchAsyncError(async (req, res, next) => {
-  const Todos = await Todo.find().populate(
-    "user",
-    "name email"
-  );
-  
+exports.allTodos = catchAsyncError(async (req, res, next) => { 
+  const Todos = await Todo.find({ user: req.user._id })
   res.status(201).json({
     success: true,
     Todos,
@@ -35,7 +33,10 @@ exports.allTodos = catchAsyncError(async (req, res, next) => {
 
 // Get Single Todo
 exports.singleTodo = catchAsyncError(async (req, res, next) => {
-  const todo = await Todo.findById(req.params.id);
+  const todo = await Todo.findById(req.params.id).populate(
+    "user",
+    "name email"
+  );
 
   if (!todo) {
     return next(new ErrorHander("Task not found", 404));
