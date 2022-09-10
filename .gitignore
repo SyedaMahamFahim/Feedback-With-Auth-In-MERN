@@ -12,7 +12,7 @@
 /build
 
 # Config files
-/configuration
+/configuration/config.env
 
 # misc
 .DS_Store
