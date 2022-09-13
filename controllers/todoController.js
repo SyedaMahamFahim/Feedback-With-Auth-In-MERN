@@ -2,6 +2,7 @@ const Todo = require("../models/todoModel");
 const catchAsyncError = require("../middleware/catchAsycnError");
 const ErrorHander = require("../utils/errorhander");
 
+
 // Create Todo
 exports.createTodo = catchAsyncError(async (req, res, next) => {
   const { title, description, status,user } = req.body;
@@ -22,9 +23,14 @@ exports.createTodo = catchAsyncError(async (req, res, next) => {
 
 
 
+
+
+
 // Get All Todos
 exports.allTodos = catchAsyncError(async (req, res, next) => { 
-  const Todos = await Todo.find({ user: req.user._id })
+  const Todos = await Todo.find()
+
+  // const Todos = await Todo.find({ user: req.user._id })
   res.status(201).json({
     success: true,
     Todos,

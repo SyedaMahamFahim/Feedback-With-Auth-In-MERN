@@ -11,13 +11,14 @@ const {
 const { isAuthenticatedUser} = require("../middleware/auth");
 
 
-// Before creating todo we need to check if user is authenticated or not
 
 // Add
 router.route("/add-todo").post(isAuthenticatedUser,createTodo);
 
+
 // All Todos
-router.route("/all-todos").get(isAuthenticatedUser, allTodos);
+// router.route("/all-todos").get(isAuthenticatedUser, allTodos);
+router.route("/all-todos").get(allTodos);
 
 // Single Todo
 router.route("/get-todo/:id").get(isAuthenticatedUser, singleTodo);
