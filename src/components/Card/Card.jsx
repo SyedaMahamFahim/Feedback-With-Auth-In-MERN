@@ -10,12 +10,11 @@ import {
 } from "@chakra-ui/react";
 import dateFormat from "dateformat";
 
-const Card = ({key,title,description,createdAt,index,status}) => {
+const Card = ({title,description,createdAt,index,status}) => {
   return (
     <>
       {" "}
       <Box
-      key={key}
         my={{ base: "1rem" }}
         mx={{ base: "1rem", md: "1.5rem", lg: "1rem" }}
         mb={{ md: "1.5rem", lg: "2rem" }}

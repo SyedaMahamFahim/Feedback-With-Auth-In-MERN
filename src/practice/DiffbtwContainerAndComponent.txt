@@ -1,0 +1,7 @@
+  // components ---> chote chote components
+
+  // container ---> 2 to 3 components
+
+
+  we dont call container in components 
+  

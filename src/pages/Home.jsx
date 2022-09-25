@@ -11,13 +11,14 @@ const Home = () => {
     dispatch(getTasks());
   }, [dispatch, error]);
 
-
-
   return (
     <>
-      <Layout loading={loading} 
-      error={error}
-      title={"All Tasks"} component={<Tasks allTasks={tasks.Todos}/>} />
+      <Layout
+        title={"All Tasks"}
+        component={
+          <Tasks loading={loading} error={error} allTasks={tasks.Todos} />
+        }
+      />
     </>
   );
 };

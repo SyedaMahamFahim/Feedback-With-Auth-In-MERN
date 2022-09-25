@@ -1,10 +1,11 @@
 import React from "react";
-import { Flex } from "@chakra-ui/react";
-import { Card, Loader } from "../../components";
+import { Flex ,Box} from "@chakra-ui/react";
+import { Card, Loader, Notification } from "../../components";
 
 const Tasks = ({ loading, allTasks }) => {
   return (
     <>
+    <Notification/>
       {loading ? (
         <Loader />
       ) : (
@@ -15,16 +16,17 @@ const Tasks = ({ loading, allTasks }) => {
           mt={{ base: "2rem", lg: "5rem" }}
           m={{ md: "1.5rem", lg: "2rem" }}
         >
-          {allTasks?.map((task, index) => {
+          { allTasks?.map((task, index) => {
             return (
+              <Box key={index}>
               <Card
-                key={index}
                 title={task.title}
                 description={task.description}
                 status={task.status}
                 createdAt={task.createdAt}
                 index={index}
               />
+              </Box>
             );
           })}
         </Flex>

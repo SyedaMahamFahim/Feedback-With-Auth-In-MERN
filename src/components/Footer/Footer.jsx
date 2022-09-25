@@ -45,13 +45,13 @@ const Footer = () => {
           <Stack direction={"row"} spacing={6}>
             {SocialLinks.map((social, index) => {
               return (
-                <>
+                
                   <Box key={index}>
                     <SocialButton label={social.name} href={social.url}>
                       <social.icon />
                     </SocialButton>
                   </Box>
-                </>
+                
               );
             })}
           </Stack>

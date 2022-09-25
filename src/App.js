@@ -1,11 +1,19 @@
 import React from "react";
-import { Home } from "./pages";
+import { Home, AddTask, LoginAndSign } from "./pages";
+
 const App = () => {
+ 
+
+
   return (
     <>
-      <Home />
+
+      {/* <Home /> */}
+      <AddTask/>
+      {/* <LoginAndSign/> */}
     </>
   );
 };
 
 export default App;
+
