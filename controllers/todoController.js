@@ -1,6 +1,6 @@
 const Todo = require("../models/todoModel");
 const catchAsyncError = require("../middleware/catchAsycnError");
-const ErrorHander = require("../utils/errorhander");
+const ErrorHandler = require("../utils/errorhandler");
 
 // Create Todo
 exports.createTodo = catchAsyncError(async (req, res, next) => {
@@ -20,13 +20,12 @@ exports.createTodo = catchAsyncError(async (req, res, next) => {
   });
 });
 
+
+
 // Get All Todos
 exports.allTodos = catchAsyncError(async (req, res, next) => {
-  const Todos = await Todo.find().populate(
-    "user",
-    "name email"
-  );
-  
+ 
+  const Todos = await Todo.find({ user: req.user._id })
   res.status(201).json({
     success: true,
     Todos,
@@ -35,10 +34,13 @@ exports.allTodos = catchAsyncError(async (req, res, next) => {
 
 // Get Single Todo
 exports.singleTodo = catchAsyncError(async (req, res, next) => {
-  const todo = await Todo.findById(req.params.id);
+  const todo = await Todo.findById(req.params.id).populate(
+    "user",
+    "name email"
+  );
 
   if (!todo) {
-    return next(new ErrorHander("Task not found", 404));
+    return next(new ErrorHandler("Task not found", 404));
   }
 
   res.status(201).json({
@@ -51,7 +53,7 @@ exports.singleTodo = catchAsyncError(async (req, res, next) => {
 exports.removeSingleTodo = catchAsyncError(async (req, res, next) => {
   const todo = await Todo.findById(req.params.id);
   if (!todo) {
-    return next(new ErrorHander("Task not found", 404));
+    return next(new ErrorHandler("Task not found", 404));
   } else {
     await Todo.findByIdAndDelete(req.params.id);
     res.status(201).json({
@@ -67,7 +69,7 @@ exports.updateSingleTodo = catchAsyncError(async (req, res, next) => {
     new: true,
   });
   if (!todo) {
-    return next(new ErrorHander("Task not found", 404));
+    return next(new ErrorHandler("Task not found", 404));
   }
   res.status(201).json({
     success: true,

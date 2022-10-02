@@ -2,8 +2,8 @@ const express =require('express')
 const app=express()
 const cookieParser = require("cookie-parser");
 
-const todoRoutes=require("./routes/todoRoutes")
-const userRoutes=require("./routes/userRoutes")
+
+
 const errorMiddleware=require('./middleware/errors')
 
 
@@ -14,10 +14,13 @@ app.use(express.urlencoded( {extended: true} ))
 
 
 
+// Import all routes
+const todoRoutes=require("./routes/todoRoutes")
+const userRoutes=require("./routes/userRoutes")
 
 // Routes
 app.use("/api/v1/todo",todoRoutes)
-app.use("/api/v1/users",userRoutes)
+app.use("/api/v1/user",userRoutes)
 
 
 // Middleware for error

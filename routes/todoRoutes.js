@@ -17,6 +17,8 @@ const { isAuthenticatedUser} = require("../middleware/auth");
 router.route("/add-todo").post(isAuthenticatedUser,createTodo);
 
 // All Todos
+// router.route("/all-todos").get(allTodos);
+
 router.route("/all-todos").get(isAuthenticatedUser, allTodos);
 
 // Single Todo
