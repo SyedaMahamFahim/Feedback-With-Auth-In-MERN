@@ -13,7 +13,6 @@ import {
   CLEAR_ERRORS,
 } from "../storeConstants/userConstant";
 
-
 // action kisi bhi event par perform hota han
 // event matlab clicks wagera
 // action hume yeh nhi bata kis par krna han. Kya cheez update krni han. aur kesy krne han.
@@ -21,42 +20,69 @@ import {
 // An action is a plain JavaScript object that has a type field.
 // action aik object hoga jis mai type field naam sy hoga aik key-value pair hoga
 
-
-// type link karye gi action ko reducer sy 
+// type link karye gi action ko reducer sy
 
 // agar humare pass Type: LOGIN_REQUEST han toh reducers mai LOGIN_REQUEST ki logic likhi hogi matlab kya cheez update krni han yah kuch bhi. logic wala kaam reducers mai hoga
 
-
 // State update logic etc --- Reducers
-// API calling --- Action. 
+// API calling --- Action.
 
-// to connect action -- reducer hum  type ko define karte han.  
+// to connect action -- reducer hum  type ko define karte han.
 // isAuthenticated: false,
 
-
 import axios from "axios";
-import { useActionData } from "react-router-dom";
 
+// simple redux mai bhi hum action mai aik function banate han.
+// Action mai sab sy phly aik function banaya.
 
+// A.c to redux thunk hume action k function k andar new async function return krna hota han.
 
-export const login = (email, password) => async (dispatch) => {
-  try {
-    dispatch({ type: LOGIN_REQUEST });
+// async q ? qk hum api ko call kar rahy han.
 
-    const config = { headers: { "Content-Type": "application/json" } };
+// kya humne redux thunk ko redux sy connect kiya han?
+// han humne redux thunk ko redux sy connect kiya han. kesy k humne store mai middleware banaya han.
 
-    const { data } = await axios.post(
-      `/api/v1/user/login`,
-      { email, password },
-      config
-    );
-    console.log({ data });
-    dispatch({ type: LOGIN_SUCCESS, payload: data.user });
-    console.log({ data });
-  } catch (error) {
-    
-    dispatch({ type: LOGIN_FAIL, payload: error.response.data.message });
-  }
+export const login = (email, password) => {
+  return async (dispatch) => {
+    try {
+      // here login request is a type
+      // dispatch is a function
+      // dispatch is a function that takes an action as an argument, and immediately sends it to the store.
+
+      // loading: true,
+      // isAuthenticated: false,
+
+      // post
+      // get
+      // delete
+      // put
+      dispatch(
+        
+        { type: LOGIN_REQUEST }
+        
+        
+        );
+
+      const config = { headers: { "Content-Type": "application/json" } };
+ 
+
+      const { data } = await axios.post(
+         // first parameter
+         `/api/v1/user/login`,
+         // 2nd parameter
+         { email, password }, // body of the request
+        // 3rd parameter
+        config // headers
+      );
+
+      dispatch({ type: LOGIN_SUCCESS, payload: data.user });
+    } catch (error) {
+      dispatch({
+        type: LOGIN_FAIL,
+        payload: error.response.data.message,
+      });
+    }
+  };
 };
 
 // Register

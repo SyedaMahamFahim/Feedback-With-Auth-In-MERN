@@ -17,6 +17,14 @@ const reducer = combineReducers(allReducers);
 
 const middleware = [thunk];
 
+
+// here ... -->  spread opeartors
+
+// const array=[1,2,3,4,5]
+
+// const newArray=[...array,6,7,8,9,10] // [1,2,3,4,5,6,7,8,9,10]`
+
+
 const store = createStore(
   reducer,
   composeWithDevTools(applyMiddleware(...middleware))
