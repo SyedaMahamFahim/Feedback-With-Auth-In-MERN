@@ -3,13 +3,23 @@ import Layout from "../Layout/Layout";
 import { useSelector, useDispatch } from "react-redux";
 import { getTasks } from "../redux/actions/taskActions";
 import Tasks from "../containers/Tasks/Tasks";
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
   const dispatch = useDispatch();
+  const navigate=useNavigate()
   const { loading, error, tasks } = useSelector((state) => state.tasks);
+  const { isAuthenticated} = useSelector((state) => state.user);
 
   useEffect(() => {
-    dispatch(getTasks());
-  }, [dispatch, error]);
+    if(!isAuthenticated){
+      navigate("/login-register")
+    }
+    else{
+      dispatch(getTasks());
+    }
+    
+  }, [dispatch, error,isAuthenticated,navigate]);
 
   return (
     <>

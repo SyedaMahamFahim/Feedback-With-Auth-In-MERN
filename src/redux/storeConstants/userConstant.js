@@ -1,6 +1,12 @@
-export const LOGIN_REQUEST = "LOGIN_REQUEST";
-export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
-export const LOGIN_FAIL = "LOGIN_FAIL";
+export const LOGIN_REQUEST = "LOGIN_REQUEST"; //loading true
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS"; // loadin false
+export const LOGIN_FAIL = "LOGIN_FAIL"; 
+// loading true
+// api sy response aaye ga
+// loading false 
+// qk login success hojaye ga toh  redirecct ho jay home par
+// loading false 
+// kiun ke login fail ho gaya to redirecct ho jay login par
 
 export const REGISTER_USER_REQUEST = "REGISTER_USER_REQUEST";
 export const REGISTER_USER_SUCCESS = "REGISTER_USER_SUCCESS";

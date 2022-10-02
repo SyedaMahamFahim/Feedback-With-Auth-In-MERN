@@ -13,7 +13,46 @@ import {
   CLEAR_ERRORS,
 } from "../storeConstants/userConstant";
 
-export const userReducer = (state = { user: {} }, action) => {
+// Reducer state ko update nhi krta new state send karta han
+
+// Reducer jab bhi bane ga 2 parameters ley ga
+// 1) INITIAL_STATE
+// 2) Action
+
+// Reducers humesha aik initial state leta han jo hume user/ frontend mai dekhnei hoti han
+// yahan par initital state
+const INITIAL_STATE = {
+  user: {}, // qk jab user 1st time visit karye ag toh koi bhi user nhi hona chahiye. blanl hona chahiye jiskki wajah sy yahan par user object blank han.
+};
+
+// 2nd parameter
+// action
+// action mai humare pass 2 parametrs aate han
+// type field aur payload
+
+// action ={
+//   type:"LOGIN_REQUEST",
+//   payload:{
+//     user:"Maham"
+//   }
+// }
+
+// action.payload ---> jo bhi humare pass api sy response aaraha han wo payload han
+
+// for example
+// http://localhost:8000/api/v1/user/logout is api sy response aik object ki surat ma aaraha han. 
+// {
+//   "success": true,
+//   "message": "Logged Out"
+// } api response 
+// toh yeh pura object humare pass action.payload han. 
+
+
+
+
+export const userReducer = (state = INITIAL_STATE, action) => {
+
+
   switch (action.type) {
     case LOGIN_REQUEST:
     case REGISTER_USER_REQUEST:
@@ -73,4 +112,3 @@ export const userReducer = (state = { user: {} }, action) => {
       return state;
   }
 };
-

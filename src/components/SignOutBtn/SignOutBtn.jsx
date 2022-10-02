@@ -1,9 +1,29 @@
 import React from "react";
 import { Flex, useColorModeValue, Button } from "@chakra-ui/react";
-
+import { useNavigate } from "react-router-dom";
+import { logout } from "../../redux/actions/userAction";
+import { useDispatch } from "react-redux";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const SignOutBtn = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+
+  function logoutUser() {
+    dispatch(logout());
+
+    toast.success("Logout Successfully", {
+      toastId: "success1",
+      autoClose: 4000,
+    });
+
+    navigate("/login-register");
+  }
+
   return (
     <>
+    <ToastContainer/>
       <Flex
         align="center"
         p="4"
@@ -34,6 +54,7 @@ const SignOutBtn = () => {
           _focus={{
             bg: "blue.500",
           }}
+          onClick={logoutUser}
         >
           Sign Out
         </Button>

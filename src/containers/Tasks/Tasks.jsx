@@ -1,11 +1,10 @@
 import React from "react";
 import { Flex ,Box} from "@chakra-ui/react";
-import { Card, Loader, Notification } from "../../components";
+import { Card, Loader} from "../../components";
 
 const Tasks = ({ loading, allTasks }) => {
   return (
     <>
-    <Notification/>
       {loading ? (
         <Loader />
       ) : (

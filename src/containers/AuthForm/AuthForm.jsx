@@ -15,27 +15,27 @@ import {
 } from "@chakra-ui/react";
 import { useDispatch, useSelector } from "react-redux";
 import { register, login, clearErrors } from "../../redux/actions/userAction";
+import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AuthForm = () => {
   // rehne dyyy
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const { error, loading, user, isAuthenticated } = useSelector(
     (state) => state.user
   );
 
-  //   const navigate = useNavigate();
-// rehne dyyy
+  // const navigate = useNavigate();
+  // rehne dyyy
 
-  
   // covered
   const [name, setName] = useState("");
   const [signUp, setSignUp] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- 
 
   const setAuthForm = () => {
     setSignUp(!signUp);
@@ -46,21 +46,19 @@ const AuthForm = () => {
       // signn up
       console.log(name, email, password);
 
-      // dispatch(register(name, email, password));
+      dispatch(register(name, email, password));
     } else {
       // Login component
       console.log(email, password);
 
-      // dispatch(login(email, password));
+      dispatch(login(email, password));
     }
   };
 
-   // covered
+  // covered
   // rehne dyyy
   useEffect(() => {
     if (error) {
-      console.log("error after sub", error.substring(0, 10));
-
       toast.error(error, {
         toastId: "error1",
         autoClose: 4000,
@@ -70,9 +68,10 @@ const AuthForm = () => {
 
     if (isAuthenticated) {
       console.log("Authenticated", user);
+      navigate("/");
     }
-  }, [dispatch, error, isAuthenticated]);
-// rehne dyyy
+  }, [dispatch, error, isAuthenticated,navigate, user]);
+  // rehne dyyy
   return (
     <>
       <ToastContainer />

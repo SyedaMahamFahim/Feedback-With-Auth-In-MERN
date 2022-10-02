@@ -36,7 +36,8 @@ const TaskForm = () => {
     //   {loading ? (
     //     <Loader />
     //   ) : (
-    <>
+    
+        <>
       <ToastContainer />
       <Box
         borderWidth={"2px"}
@@ -88,6 +89,7 @@ const TaskForm = () => {
       </Box>
     </>
     //   )}
+
     // </>
   );
 };

@@ -1,19 +1,19 @@
-import React from "react";
-import { Home, AddTask, LoginAndSign } from "./pages";
-
+import React, { useEffect } from "react";
+import { loadUser } from "./redux/actions/userAction";
+import store from "./redux/store";
+import Configuration from "./configurations/Configuration";
 const App = () => {
- 
 
 
+  useEffect(() => {
+    store.dispatch(loadUser());
+  }, []);
+  
   return (
     <>
-
-      {/* <Home /> */}
-      <AddTask/>
-      {/* <LoginAndSign/> */}
+      <Configuration />
     </>
   );
 };
 
 export default App;
-

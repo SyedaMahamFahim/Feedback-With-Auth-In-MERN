@@ -1,10 +1,10 @@
 import React from "react";
-import { Flex, Icon, Link } from "@chakra-ui/react";
-
+import { Flex, Icon} from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 const SidebarNavItems = ({ icon,url, children, ...rest }) => {
   return (
     <Link
-      href={url}
+      to={url}
       style={{ textDecoration: "none" }}
       _focus={{ boxShadow: "none" }}
     >

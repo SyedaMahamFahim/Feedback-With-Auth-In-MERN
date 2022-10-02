@@ -13,7 +13,32 @@ import {
   CLEAR_ERRORS,
 } from "../storeConstants/userConstant";
 
+
+// action kisi bhi event par perform hota han
+// event matlab clicks wagera
+// action hume yeh nhi bata kis par krna han. Kya cheez update krni han. aur kesy krne han.
+
+// An action is a plain JavaScript object that has a type field.
+// action aik object hoga jis mai type field naam sy hoga aik key-value pair hoga
+
+
+// type link karye gi action ko reducer sy 
+
+// agar humare pass Type: LOGIN_REQUEST han toh reducers mai LOGIN_REQUEST ki logic likhi hogi matlab kya cheez update krni han yah kuch bhi. logic wala kaam reducers mai hoga
+
+
+// State update logic etc --- Reducers
+// API calling --- Action. 
+
+// to connect action -- reducer hum  type ko define karte han.  
+// isAuthenticated: false,
+
+
 import axios from "axios";
+import { useActionData } from "react-router-dom";
+
+
+
 export const login = (email, password) => async (dispatch) => {
   try {
     dispatch({ type: LOGIN_REQUEST });
