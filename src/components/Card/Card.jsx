@@ -13,6 +13,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loader from "../Loader/Loader";
 
 const Card = ({ title, description, createdAt, index, status, id }) => {
   const [loading, setLoading] = useState(false);
@@ -25,13 +26,12 @@ const Card = ({ title, description, createdAt, index, status, id }) => {
       setLoading(true);
       await axios
         .delete(`/api/v1/todo/remove-todo/${id}`)
-        .then((response) => {
+        .then(() => {
           toast.success("Todo deleted successfully", {
             toastId: "success1",
             autoClose: 4000,
           });
-
-          console.log("this is response", response);
+          window.location.reload();
         })
         .catch((error) => {
           toast.error(error.response.data.message, {
@@ -39,19 +39,17 @@ const Card = ({ title, description, createdAt, index, status, id }) => {
             autoClose: 4000,
           });
         });
-      // page reload
-      window.location.reload();
+      
       setLoading(false);
     }
 
-    console.log("deleteTask", id);
   };
 
   return (
     <>
       <ToastContainer />
       {loading ? (
-        "loading"
+        <Loader />
       ) : (
         <>
           {" "}

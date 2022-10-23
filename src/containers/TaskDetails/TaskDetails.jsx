@@ -39,9 +39,11 @@ const TaskDetails = () => {
 
   useEffect(() => {
     getTaskDetails();
+    
     // eslint-disable-next-line
   }, []);
 
+  console.log("this is data",data)
   return (
     <>
       <ToastContainer />

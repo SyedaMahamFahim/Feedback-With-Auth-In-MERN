@@ -58,23 +58,18 @@ const UpdateTaskForm = () => {
         status: taskStatus,
       };
 
-      console.log("this is new task", {
-        title: taskTitle,
-        description: taskDescription,
-        status: taskStatus,
-      });
+
       await axios
         .put(`/api/v1/todo/update-todo/${id}`, formData)
-        .then((response) => {
-          console.log("this is update response", response);
-          toast.success("Task Created Successfully", {
+        .then(() => {
+          toast.success("Task Update Successfully", {
             toastId: "success1",
             autoClose: 4000,
           });
         })
         .catch((error) => {
           console.log(error.response.data.message);
-          toast.error("Task Update Successfully", {
+          toast.error(error.response.data.message, {
             toastId: "error1",
             autoClose: 4000,
           });
