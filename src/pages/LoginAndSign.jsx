@@ -15,6 +15,7 @@ const LoginAndSign = () => {
       navigate("/login-register");
     }
   }, [isAuthenticated, navigate]);
+  
   return (
     <>
       <AuthForm />

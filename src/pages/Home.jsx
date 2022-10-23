@@ -9,6 +9,8 @@ const Home = () => {
   const dispatch = useDispatch();
   const navigate=useNavigate()
   const { loading, error, tasks } = useSelector((state) => state.tasks);
+
+  // 
   const { isAuthenticated} = useSelector((state) => state.user);
 
   useEffect(() => {

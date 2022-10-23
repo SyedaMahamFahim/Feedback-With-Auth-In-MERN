@@ -20,13 +20,16 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const AuthForm = () => {
+  // if i want to send data to Redux then use ---> useDispatch 
+  // if i want to get data from Redux then use ---> useSelector
+
+
   // rehne dyyy
   const dispatch = useDispatch();
+
   const navigate = useNavigate();
 
-  const { error, loading, user, isAuthenticated } = useSelector(
-    (state) => state.user
-  );
+  const { error, loading, user, isAuthenticated } = useSelector((state)=>state.user);
 
   // const navigate = useNavigate();
   // rehne dyyy
@@ -57,8 +60,10 @@ const AuthForm = () => {
 
   // covered
   // rehne dyyy
+  // alert
   useEffect(() => {
     if (error) {
+      // alert(error);
       toast.error(error, {
         toastId: "error1",
         autoClose: 4000,

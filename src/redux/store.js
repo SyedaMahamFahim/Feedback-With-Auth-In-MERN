@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
-import { tasksReducer } from "./reducers/taskReducer";
+import { tasksReducer,newTaskReducer} from "./reducers/taskReducer";
 import { userReducer } from "./reducers/userReducer";
 
 // store humesha reducers leta han
@@ -10,9 +10,13 @@ import { userReducer } from "./reducers/userReducer";
 
 const allReducers = {
   tasks: tasksReducer,
+  createTask: newTaskReducer,
   user: userReducer,
 };
 
+// 
+// allReducers is an object that contains all the reducers
+// state --> in UI
 const reducer = combineReducers(allReducers);
 
 const middleware = [thunk];

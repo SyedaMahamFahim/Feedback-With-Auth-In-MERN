@@ -1,29 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Flex, useColorModeValue, Button } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
-import { logout } from "../../redux/actions/userAction";
+import { logout,clearErrors } from "../../redux/actions/userAction";
 import { useDispatch } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 const SignOutBtn = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
-
 
   function logoutUser() {
     dispatch(logout());
-
-    toast.success("Logout Successfully", {
-      toastId: "success1",
-      autoClose: 4000,
-    });
-
-    navigate("/login-register");
   }
+
+  // useEffect(() => {
+   
+  //     toast.success("Logout Successfully", {
+  //       toastId: "success1",
+  //       autoClose: 4000,
+  //     });
+
+  //     dispatch(clearErrors());
+  
+  // }, [dispatch,logout]);
 
   return (
     <>
-    <ToastContainer/>
+      <ToastContainer />
       <Flex
         align="center"
         p="4"

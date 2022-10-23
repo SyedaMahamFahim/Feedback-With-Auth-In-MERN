@@ -2,18 +2,10 @@ import {
   ALL_TASKS_REQUEST,
   ALL_TASKS_SUCCESS,
   ALL_TASKS_FAIL,
-  // NEW_TASK_REQUEST,
-  // NEW_TASK_SUCCESS,
-  // NEW_TASK_RESET,
-  // NEW_TASK_FAIL,
-  // UPDATE_TASK_RESET,
-  // DELETE_TASK_REQUEST,
-  // DELETE_TASK_SUCCESS,
-  // DELETE_TASK_FAIL,
-  // DELETE_TASK_RESET,
-  // TASK_DETAILS_REQUEST,
-  // TASK_DETAILS_FAIL,
-  // TASK_DETAILS_SUCCESS,
+  NEW_TASK_REQUEST,
+  NEW_TASK_SUCCESS,
+  NEW_TASK_RESET,
+  NEW_TASK_FAIL,
   CLEAR_ERRORS,
 } from "../storeConstants/tasksConstant";
 
@@ -45,3 +37,37 @@ export const tasksReducer = (state = { tasks: [] }, action) => {
       return state;
   }
 };
+
+export const newTaskReducer = (state = { task: {} }, action) => {
+  switch (action.type) {
+    case NEW_TASK_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case NEW_TASK_SUCCESS:
+      return {
+        loading: false,
+        success: action.payload.success,
+        task: action.payload.message,
+      };
+    case NEW_TASK_FAIL:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+    case NEW_TASK_RESET:
+      return {
+        ...state,
+        success: false,
+      };
+    case CLEAR_ERRORS:
+      return {
+        ...state,
+        error: null,
+      };
+    default:
+      return state;
+  }
+}

@@ -15,6 +15,8 @@ const Tasks = ({ loading, allTasks }) => {
           mt={{ base: "2rem", lg: "5rem" }}
           m={{ md: "1.5rem", lg: "2rem" }}
         >
+          {/* ? ==> && */}
+          {/* 0,1,2,3 */}
           { allTasks?.map((task, index) => {
             return (
               <Box key={index}>
@@ -24,6 +26,7 @@ const Tasks = ({ loading, allTasks }) => {
                 status={task.status}
                 createdAt={task.createdAt}
                 index={index}
+                id={task._id}
               />
               </Box>
             );

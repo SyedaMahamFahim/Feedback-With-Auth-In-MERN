@@ -15,6 +15,7 @@ const AddTask = () => {
       navigate("/create-task");
     }
   }, [isAuthenticated, navigate]);
+  
   return (
     <>
       <Layout title={"Create Tasks"} component={<TaskForm />} />
