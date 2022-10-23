@@ -54,7 +54,9 @@ const TaskDetails = () => {
         <>
           {console.log(data)}
 
-          <Box boxShadow={"2xl"} rounded={"lg"} backgroundColor={"white"} p={6}>
+          <Box boxShadow={"2xl"} rounded={"lg"} 
+          
+          p={6}>
             <Box>
               <Heading>Title</Heading>
               <Text fontWeight={600} color={"gray.500"} my={4}>
