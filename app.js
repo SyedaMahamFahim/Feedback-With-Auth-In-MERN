@@ -19,6 +19,9 @@ app.use(express.urlencoded( {extended: true} ))
 app.use("/api/v1/todo",todoRoutes)
 app.use("/api/v1/users",userRoutes)
 
+app.get("/",(req,res)=>{
+    res.send("Hello World")
+})
 
 // Middleware for error
 app.use(errorMiddleware)
