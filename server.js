@@ -12,10 +12,10 @@ process.on("uncaughtException", (err) => {
 });
 
  
-const PORT = process.env.PORT;
+const PORT = 8000;
 
 const server = app.listen(PORT, () => {
-  console.log(`Server is working on http://localhost:${process.env.PORT}`);
+  console.log(`Server is working on http://localhost:${PORT}`);
 });
 
 
