@@ -8,6 +8,12 @@ import { userReducer } from "./reducers/userReducer";
 // wo bhi sirf aik
 // combineReducers aik object leta han
 
+// action
+// reducers
+// store -file 
+// constant 
+// state
+
 const allReducers = {
   tasks: tasksReducer,
   createTask: newTaskReducer,

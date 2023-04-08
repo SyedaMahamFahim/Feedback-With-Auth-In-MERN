@@ -22,7 +22,7 @@ import {
 // Reducers humesha aik initial state leta han jo hume user/ frontend mai dekhnei hoti han
 // yahan par initital state
 const INITIAL_STATE = {
-  user: {}, // qk jab user 1st time visit karye ag toh koi bhi user nhi hona chahiye. blanl hona chahiye jiskki wajah sy yahan par user object blank han.
+  user: {}, // qk jab user 1st time visit karye ag toh koi bhi user nhi hona chahiye. blank hona chahiye jiskki wajah sy yahan par user object blank han.
 };
 
 // 2nd parameter
@@ -44,11 +44,14 @@ const INITIAL_STATE = {
 // {
 //   "success": true,
 //   "message": "Logged Out"
-// } api response 
+// } 
+// api response 
 // toh yeh pura object humare pass action.payload han. 
 
 
-
+// Request - user request karye ga server sy 
+// success - user ko positive response mila 
+// error - server error etc mile
 
 export const userReducer = (state = INITIAL_STATE, action) => {
 

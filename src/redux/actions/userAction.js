@@ -56,26 +56,21 @@ export const login = (email, password) => {
       // get
       // delete
       // put
-      dispatch(
-        
-        { type: LOGIN_REQUEST }
-        
-        
-        );
+      dispatch({ type: LOGIN_REQUEST });
 
       const config = { headers: { "Content-Type": "application/json" } };
- 
 
       const { data } = await axios.post(
-         // first parameter
-         `/api/v1/user/login`,
-         // 2nd parameter
-         { email, password }, // body of the request
+        // first parameter
+        `/api/v1/user/login`,
+        // 2nd parameter
+        { email, password }, // body of the request
         // 3rd parameter
         config // headers
       );
 
       dispatch({ type: LOGIN_SUCCESS, payload: data.user });
+      
     } catch (error) {
       dispatch({
         type: LOGIN_FAIL,
@@ -92,13 +87,13 @@ export const register = (name, email, password) => async (dispatch) => {
 
     const config = { headers: { "Content-Type": "application/json" } };
     const { data } = await axios.post(
-      `/api/v1/user/register`,
+      `http://localhost:8000/api/v1/user/register`,
       { name, email, password },
       config
     );
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
   } catch (error) {
-    console.log()
+    console.log();
     dispatch({
       type: REGISTER_USER_FAIL,
       payload: error.response.data.message,

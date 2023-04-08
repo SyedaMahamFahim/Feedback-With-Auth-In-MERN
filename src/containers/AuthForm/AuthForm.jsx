@@ -54,7 +54,10 @@ const AuthForm = () => {
       // Login component
       console.log(email, password);
 
-      dispatch(login(email, password));
+      dispatch(
+        login(email, password)
+        
+        );
     }
   };
 
@@ -63,7 +66,6 @@ const AuthForm = () => {
   // alert
   useEffect(() => {
     if (error) {
-      // alert(error);
       toast.error(error, {
         toastId: "error1",
         autoClose: 4000,

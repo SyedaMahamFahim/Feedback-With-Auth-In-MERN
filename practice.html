@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" name="user-name" id="user-name">
+
+    <h1>Hello World</h1>
+  </body>
+  <script>
+
+    // const userName = document.getElementById('user-name');
+    // userName.addEventListener('input', (e) => {
+    //   console.log(e.target.name);
+    // });
+
+   
+    // const obj = {
+    //   name: "John",
+    //   age: 30,
+    //   city: "New York",
+    // };
+
+    // console.log("obj", obj);
+    // // spread operator
+
+    // const newObj = {
+    //   ...obj,
+    //   city: "Karachi",
+    // };
+    
+    // console.log("newObj",newObj);
+
+    // const {name, age, city} = obj;
+    // obj.city="Karachi"
+    // console.log(obj.name, obj.age, obj.city)
+    // console.log(name, age, city)
+
+    // 
+    const obj1 = {
+      name: "John1",
+      age: 30,
+      city: "New York",
+    }
+
+    const obj2 = {
+      name: "John2",
+      age: 30,
+      city: "New York",
+    }
+
+    const obj3 = {
+      name: "John3",
+      age: 30,
+      city: "New York",
+    }
+
+    // for Inputs in React 
+
+    // const [formData, setFormData] = useState({
+        // title:"",
+        // description:"",
+    // })
+
+    // const [tasks, setAllTasks] = useState([])
+
+
+    const onSubmit=()=>{
+        console.log(formData)  // {title:"abc", description:"abc"}
+        setAllTasks([...tasks, formData])
+    }
+
+
+    let allMembers = [obj1, obj2, obj3];
+
+    console.log(allMembers);
+
+    const obj4={
+        name:"John4",
+        age:30,
+        city:"New York"
+    }
+
+    // allMembers.push(obj4);
+    allMembers = [...allMembers, obj4];
+    console.log(allMembers);
+
+  </script>
+</html>

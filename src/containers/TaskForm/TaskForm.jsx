@@ -16,14 +16,22 @@ const TaskForm = () => {
   const dispatch = useDispatch();
 
   const { loading, error } = useSelector((state) => state.createTask);
-  const [formData, setFormData] = useState({
+
+
+
+  const [formData, setFormData] = useState(
+    {
     title: "",
     description: "",
     status: "",
-  });
+    }
+  );
+
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    setFormData(
+      { ...formData, [e.target.name]: e.target.value }
+      );
   };
 
   const formSubmission = async () => {
